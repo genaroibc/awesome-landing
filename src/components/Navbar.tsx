@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 
 type Item = {
-  label: string
+  label: React.ReactNode
   subItems?: Item[]
 }
 
@@ -59,15 +59,21 @@ export function Navbar({ items }: Props) {
 function NavbarItem({ item }: { item: Item }) {
   const [isSubMenuVisible, setIsSubMenuVisible] = useState(false)
 
+  const thereAreChildItems = Number(item.subItems?.length ?? 0)
+
   return (
     <span
-      onMouseOver={() => setIsSubMenuVisible(true)}
-      onMouseLeave={() => setIsSubMenuVisible(false)}
+      onMouseOver={
+        thereAreChildItems ? () => setIsSubMenuVisible(true) : undefined
+      }
+      onMouseLeave={
+        thereAreChildItems ? () => setIsSubMenuVisible(false) : undefined
+      }
       className="relative z-20 flex items-center gap-2 p-3 text-slate-50 hover:text-slate-100 cursor-pointer group"
     >
       <div>{item.label}</div>
 
-      {Number(item.subItems?.length) > 0 ? (
+      {thereAreChildItems ? (
         <span className="group-hover:-rotate-180 transition-transform duration-300">
           <IconArrow />
         </span>
