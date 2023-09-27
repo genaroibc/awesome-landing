@@ -35,7 +35,7 @@ export function Navbar({ items }: Props) {
   }, [])
 
   return (
-    <nav className="rounded-full border border-slate-50/30 w-fit bg-slate-950 px-6">
+    <nav className="rounded-full border border-slate-50/30 w-fit mx-auto bg-transparent backdrop-blur-3xl px-6 sticky top-8 z-30 mb-8">
       <div className="flex items-center relative h-full">
         <span
           className="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300"
@@ -86,7 +86,7 @@ function NavbarItem({ item }: { item: Item }) {
             {item.subItems?.map((subItem, index) => (
               <li
                 key={index}
-                className="bg-slate-950 py-2 px-4 hover:bg-slate-900"
+                className="py-2 px-4 bg-slate-900/50 backdrop-blur-3xl hover:bg-slate-900/90 transition-colors duration-[100ms]"
               >
                 {subItem.label}
               </li>
