@@ -1,6 +1,6 @@
 ---
 import "@/styles/globals.css"
-import { Navbar } from "@/components/Navbar.tsx"
+import { Home } from "@/components/Home.tsx"
 ---
 
 <html lang="en">
@@ -11,20 +11,7 @@ import { Navbar } from "@/components/Navbar.tsx"
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
   </head>
-  <body class="bg-slate-900 grid place-content-center p-12">
-    <Navbar
-      client:visible
-      items={[
-        {
-          label: "Home Alone     as"
-        },
-        {
-          label: "About"
-        },
-        {
-          label: "Contact"
-        }
-      ]}
-    />
+  <body class="max-w-[1400px] mx-auto p-4 bg-black">
+    <Home client:visible />
   </body>
 </html>
