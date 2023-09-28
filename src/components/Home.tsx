@@ -52,20 +52,6 @@ export function Home() {
             ]
           },
           {
-            label: "Contact",
-            subItems: [
-              {
-                label: "Support"
-              },
-              {
-                label: "Sales"
-              },
-              {
-                label: "Custom"
-              }
-            ]
-          },
-          {
             label: "Products",
             subItems: [
               {
@@ -104,7 +90,7 @@ export function Home() {
 }
 
 const CustomCard = () => (
-  <Card className="max-w-xl bg-slate-950">
+  <Card className="max-w-xl bg-slate-950 mx-auto">
     <img
       src="https://picsum.photos/300/200"
       alt=""

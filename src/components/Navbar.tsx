@@ -35,7 +35,7 @@ export function Navbar({ items }: Props) {
   }, [])
 
   return (
-    <nav className="rounded-full border border-slate-50/30 w-fit mx-auto bg-transparent backdrop-blur-3xl px-6 sticky top-8 z-30 mb-8">
+    <nav className="rounded-full border border-slate-50/30 w-fit mx-auto bg-transparent backdrop-blur-3xl px-6 sticky top-8 z-30 mb-8 max-w-full">
       <div className="flex items-center relative h-full">
         <span
           className="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300"
@@ -69,9 +69,11 @@ function NavbarItem({ item }: { item: Item }) {
       onMouseLeave={
         thereAreChildItems ? () => setIsSubMenuVisible(false) : undefined
       }
-      className="relative z-20 flex items-center gap-2 p-3 text-slate-50 hover:text-slate-100 cursor-pointer group"
+      className="relative z-20 flex items-center gap-1 md:gap-2 p-2 md:p-3 text-slate-50 hover:text-slate-100 cursor-pointer group"
     >
-      <div>{item.label}</div>
+      <div className="overflow-hidden text-ellipsis whitespace-nowrap">
+        {item.label}
+      </div>
 
       {thereAreChildItems ? (
         <span className="group-hover:-rotate-180 transition-transform duration-300">
