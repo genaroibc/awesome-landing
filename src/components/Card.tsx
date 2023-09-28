@@ -17,8 +17,8 @@ export function Card({ children, className }: CardProps) {
       const { clientX, clientY } = event
       const { offsetLeft, offsetTop } = event.currentTarget
       const { offsetWidth, offsetHeight } = mouseFollowerRef.current
-      const x = clientX - offsetLeft - offsetWidth / 2
-      const y = clientY - offsetTop - offsetHeight / 2
+      const x = clientX - offsetLeft - offsetWidth / 2 + scrollX
+      const y = clientY - offsetTop - offsetHeight / 2 + scrollY
       mouseFollowerRef.current.style.transform = `translate(${x}px, ${y}px)`
 
       event.currentTarget.style.setProperty("--client-x", `${x}px`)
