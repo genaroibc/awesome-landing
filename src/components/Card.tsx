@@ -12,7 +12,7 @@ export function Card({ children, className }: CardProps) {
 
   const handleMouseMove = useCallback(
     (event: React.MouseEvent<HTMLDivElement>) => {
-      if (!mouseFollowerRef.current) return
+      if (!mouseFollowerRef.current || !cardBorderRef.current) return
 
       const { clientX, clientY } = event
       const { offsetLeft, offsetTop } = event.currentTarget
@@ -20,9 +20,7 @@ export function Card({ children, className }: CardProps) {
       const x = clientX - offsetLeft - offsetWidth / 2 + scrollX
       const y = clientY - offsetTop - offsetHeight / 2 + scrollY
       mouseFollowerRef.current.style.transform = `translate(${x}px, ${y}px)`
-
-      event.currentTarget.style.setProperty("--client-x", `${x}px`)
-      event.currentTarget.style.setProperty("--client-y", `${y}px`)
+      cardBorderRef.current.style.transform = `translate(${x}px, ${y}px)`
     },
     []
   )
@@ -39,7 +37,7 @@ export function Card({ children, className }: CardProps) {
       />
       <div
         ref={cardBorderRef}
-        className="w-96 h-96 bg-slate-50/40 -z-50 rounded-full blur-[70px] absolute inset-0 top-[var(--client-y)] left-[var(--client-x)] rotate-90 group-hover:opacity-100 opacity-0 transition-opacity duration-300"
+        className="  bg-slate-50/40 rounded-full w-96 h-96 blur-[70px] absolute group-hover:opacity-100 opacity-0   transition-opacity duration-300 -z-50"
       ></div>
 
       {/* Card content */}
