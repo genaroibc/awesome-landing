@@ -35,7 +35,7 @@ export function Navbar({ items }: Props) {
   }, [])
 
   return (
-    <nav className="rounded-full border border-slate-50/30 w-fit mx-auto bg-transparent backdrop-blur-3xl px-6 sticky top-8 z-30 mb-8 max-w-full">
+    <nav className="rounded-full border border-slate-50/30 w-fit mx-auto bg-transparent px-6 sticky top-8 z-30 mb-8 max-w-full">
       <div className="flex items-center relative h-full">
         <span
           className="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300"
@@ -82,13 +82,13 @@ function NavbarItem({ item }: { item: Item }) {
       ) : null}
 
       {isSubMenuVisible ? (
-        <nav className="absolute top-14 animate-fade-in left-0">
+        <nav className="absolute top-14 animate-fade-in left-0 backdrop-blur-3xl">
           <div className="absolute inset-0 scale-150 -z-10" />
-          <ul className="relative rounded-lg border border-slate-50/30 overflow-hidden">
+          <ul className="relative rounded-lg border overflow-hidden border-slate-50/30">
             {item.subItems?.map((subItem, index) => (
               <li
                 key={index}
-                className="py-2 px-4 bg-slate-900/50 backdrop-blur-3xl hover:bg-slate-900/90 transition-colors duration-[100ms]"
+                className="py-2 px-4 hover:bg-slate-50/10 transition-colors duration-[100ms]"
               >
                 {subItem.label}
               </li>
