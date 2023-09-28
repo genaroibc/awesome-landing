@@ -33,11 +33,11 @@ export function Card({ children, className }: CardProps) {
       {/* Mouse followers */}
       <div
         ref={mouseFollowerRef}
-        className="bg-indigo-500/10 rounded-full w-96 h-96 blur-[70px] absolute group-hover:opacity-100 opacity-0 transition-opacity duration-300 z-10"
+        className="bg-indigo-500/5 rounded-full w-96 h-96 blur-[70px] absolute group-hover:opacity-100 opacity-0 transition-opacity duration-300 pointer-events-none z-10"
       />
       <div
         ref={cardBorderRef}
-        className="  bg-slate-50/40 rounded-full w-96 h-96 blur-[70px] absolute group-hover:opacity-100 opacity-0   transition-opacity duration-300 -z-50"
+        className="  bg-slate-50/40 rounded-full w-96 h-96 blur-[70px] absolute group-hover:opacity-100 opacity-0   transition-opacity duration-300 pointer-events-none -z-50"
       ></div>
 
       {/* Card content */}
