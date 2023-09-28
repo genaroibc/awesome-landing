@@ -36,7 +36,7 @@ export function Navbar({ items }: Props) {
 
   return (
     <nav className="rounded-full border border-slate-50/30 w-fit mx-auto bg-transparent px-6 sticky top-8 z-30 mb-8 max-w-full">
-      <span className="absolute w-full h-full backdrop-blur-xl inset-0 rounded-full" />
+      <span className="absolute w-full h-full backdrop-blur-xl inset-0 rounded-full bg-black/50" />
 
       <div className="flex items-center relative h-full">
         <span
@@ -71,7 +71,7 @@ function NavbarItem({ item }: { item: Item }) {
       onMouseLeave={
         thereAreChildItems ? () => setIsSubMenuVisible(false) : undefined
       }
-      className="relative z-20 flex items-center gap-1 md:gap-2 p-2 md:p-3 text-slate-50 hover:text-slate-100 cursor-pointer group"
+      className="relative z-20 flex items-center gap-1 md:gap-2 p-2 md:p-3 transition-colors duration-200 text-gray-400 hover:text-gray-200 cursor-pointer group"
     >
       <div className="overflow-hidden text-ellipsis whitespace-nowrap">
         {item.label}
@@ -90,7 +90,7 @@ function NavbarItem({ item }: { item: Item }) {
             {item.subItems?.map((subItem, index) => (
               <li
                 key={index}
-                className="py-2 px-4 hover:bg-slate-50/10 transition-colors duration-[100ms]"
+                className="py-2 px-4 hover:bg-slate-300/10 transition-colors duration-200 text-gray-400 hover:text-gray-200"
               >
                 {subItem.label}
               </li>
