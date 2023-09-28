@@ -40,7 +40,7 @@ export function Navbar({ items }: Props) {
 
       <div className="flex items-center relative h-full">
         <span
-          className="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300"
+          className="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 z-10"
           ref={underlineDecorationRef}
         />
 
