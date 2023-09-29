@@ -38,9 +38,9 @@ export function Navbar({ items }: Props) {
     <nav className="rounded-full border border-slate-50/30 w-fit mx-auto bg-transparent px-6 sticky top-8 z-30 mb-8 max-w-full">
       <span className="absolute w-full h-full backdrop-blur-xl inset-0 rounded-full bg-black/50" />
 
-      <div className="flex items-center relative h-full">
+      <div className="flex items-center relative h-full group/navbar">
         <span
-          className="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 z-10"
+          className="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 z-10 brightness-75 group-hover/navbar:brightness-100"
           ref={underlineDecorationRef}
         />
 
@@ -64,21 +64,22 @@ function NavbarItem({ item }: { item: Item }) {
   const thereAreChildItems = Number(item.subItems?.length ?? 0)
 
   return (
-    <span
+    <button
+      onClick={() => setIsSubMenuVisible(isSubMenuVisible => !isSubMenuVisible)}
       onMouseOver={
         thereAreChildItems ? () => setIsSubMenuVisible(true) : undefined
       }
       onMouseLeave={
         thereAreChildItems ? () => setIsSubMenuVisible(false) : undefined
       }
-      className="relative z-20 flex items-center gap-1 md:gap-2 p-2 md:p-3 transition-colors duration-200 text-gray-400 hover:text-gray-200 cursor-pointer group"
+      className="relative z-20 flex items-center gap-1 md:gap-2 p-2 md:p-3 transition-colors duration-200 text-gray-400 hover:text-gray-200 group/navbar-item"
     >
       <div className="overflow-hidden text-ellipsis whitespace-nowrap">
         {item.label}
       </div>
 
       {thereAreChildItems ? (
-        <span className="group-hover:-rotate-180 transition-transform duration-300">
+        <span className="group-hover/navbar-item:-rotate-180 transition-transform duration-300">
           <IconArrow />
         </span>
       ) : null}
@@ -98,7 +99,7 @@ function NavbarItem({ item }: { item: Item }) {
           </ul>
         </nav>
       ) : null}
-    </span>
+    </button>
   )
 }
 
