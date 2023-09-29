@@ -9,7 +9,7 @@ export function Home() {
   })
 
   return (
-    <section>
+    <>
       <Navbar
         items={[
           {
@@ -70,13 +70,15 @@ export function Home() {
         ]}
       />
 
-      <div className="my-28">
-        <Title>
-          {"Discover "
-            .concat(encryptedText)
-            .concat(", collectibles and digital art")}
-        </Title>
-      </div>
-    </section>
+      <section>
+        <div className="my-28">
+          <Title>
+            {"Discover "
+              .concat(encryptedText)
+              .concat(", collectibles and digital art")}
+          </Title>
+        </div>
+      </section>
+    </>
   )
 }
