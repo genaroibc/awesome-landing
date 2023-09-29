@@ -1,0 +1,55 @@
+---
+import CustomCard from "@/components/CustomCard.astro"
+---
+
+<section
+  class="grid grid-cols-[repeat(auto-fit,minmax(min(350px,100%),1fr))] gap-8 my-12"
+>
+  {
+    Array(9)
+      .fill(null)
+      .map(() => (
+        <div class="custom-card-wrapper">
+          <CustomCard />
+        </div>
+      ))
+  }
+</section>
+
+<script>
+  const cards = document.querySelectorAll(".custom-card-wrapper")
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("custom-card-wrapper-visible")
+          observer.unobserve(entry.target)
+        }
+      })
+    },
+    {
+      threshold: 0.3
+    }
+  )
+
+  cards.forEach(card => {
+    observer.observe(card)
+  })
+</script>
+
+<style>
+  .custom-card-wrapper {
+    opacity: 0;
+  }
+
+  .custom-card-wrapper-visible {
+    animation: animate-fade-in 0.5s 0.1s ease-out forwards;
+  }
+
+  @keyframes animate-fade-in {
+    to {
+      opacity: 1;
+    }
+  }
+</style>

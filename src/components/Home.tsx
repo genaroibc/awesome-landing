@@ -1,5 +1,4 @@
 import { Navbar } from "@/components/Navbar.tsx"
-import { Card } from "@/components/Card"
 import { Title } from "@/components/Title"
 import { useEncryptedText } from "@/hooks/useEncryptedText"
 
@@ -78,31 +77,6 @@ export function Home() {
             .concat(", collectibles and digital art")}
         </Title>
       </div>
-
-      <section className="grid grid-cols-[repeat(auto-fit,minmax(min(400px,100%),1fr))] gap-4 my-12">
-        <CustomCard />
-        <CustomCard />
-        <CustomCard />
-        <CustomCard />
-      </section>
     </section>
   )
 }
-
-const CustomCard = () => (
-  <Card className="max-w-xl bg-slate-950 mx-auto">
-    <img
-      src="https://picsum.photos/300/200"
-      alt=""
-      width="300"
-      height="200"
-      className="w-full rounded-md mb-4 brightness-50"
-    />
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste amet debitis
-      dolores. Est deserunt perspiciatis harum? Harum omnis aliquid nam
-      aspernatur amet ullam nihil esse similique, laboriosam ab distinctio
-      ducimus.
-    </p>
-  </Card>
-)
