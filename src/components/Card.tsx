@@ -37,13 +37,13 @@ export function Card({ children, className }: CardProps) {
       />
       <div
         ref={cardBorderRef}
-        className="  bg-slate-50/40 rounded-full w-96 h-96 blur-[70px] absolute group-hover:opacity-100 opacity-0   transition-opacity duration-300 pointer-events-none -z-50"
+        className="bg-slate-50/40 rounded-full w-96 h-96 blur-[70px] absolute group-hover:opacity-100 opacity-0   transition-opacity duration-300 pointer-events-none -z-50"
       ></div>
 
       {/* Card content */}
       <div
         className={clsx(
-          "h-full w-full bg-slate-900 p-4 rounded-2xl z-20",
+          "h-full w-full bg-slate-900 p-4 rounded-3xl z-20",
           className
         )}
       >
