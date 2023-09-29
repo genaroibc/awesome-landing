@@ -27,7 +27,7 @@ export function Card({ children, className }: CardProps) {
 
   return (
     <article
-      className="border border-slate-50/20 rounded-3xl p-[1px] overflow-hidden relative z-10 group max-w-fit"
+      className="border border-slate-50/20 rounded-3xl p-[1px] overflow-hidden relative z-10 group max-w-fit bg-slate-950"
       onMouseMove={handleMouseMove}
     >
       {/* Mouse followers */}
