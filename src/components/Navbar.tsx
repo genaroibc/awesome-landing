@@ -85,7 +85,7 @@ function NavbarItem({ item }: { item: Item }) {
       ) : null}
 
       {isSubMenuVisible ? (
-        <nav className="absolute top-14 animate-fade-in left-0 backdrop-blur-xl">
+        <nav className="absolute top-14 animate-fade-in left-0 backdrop-blur-xl bg-black/50">
           <div className="absolute inset-0 scale-150 -z-10" />
           <ul className="relative rounded-lg border overflow-hidden border-slate-50/30">
             {item.subItems?.map((subItem, index) => (
