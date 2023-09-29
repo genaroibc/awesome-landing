@@ -35,7 +35,7 @@ export function Navbar({ items }: Props) {
   }, [])
 
   return (
-    <nav className="rounded-full border border-slate-50/30 w-fit mx-auto bg-transparent px-6 sticky top-8 z-30 mb-8 max-w-full">
+    <nav className="rounded-full border border-slate-50/10 w-fit mx-auto bg-transparent px-6 sticky top-8 z-30 mb-8 max-w-full">
       <span className="absolute w-full h-full backdrop-blur-xl inset-0 rounded-full bg-black/50" />
 
       <div className="flex items-center relative h-full group/navbar">
@@ -87,7 +87,7 @@ function NavbarItem({ item }: { item: Item }) {
       {isSubMenuVisible ? (
         <nav className="absolute top-14 animate-fade-in left-0 backdrop-blur-xl bg-black/50">
           <div className="absolute inset-0 scale-150 -z-10" />
-          <ul className="relative rounded-lg border overflow-hidden border-slate-50/30">
+          <ul className="relative rounded-lg border overflow-hidden border-slate-50/10">
             {item.subItems?.map((subItem, index) => (
               <li
                 key={index}
