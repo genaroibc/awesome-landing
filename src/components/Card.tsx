@@ -1,5 +1,8 @@
-import clsx from "clsx"
+import clsx, { type ClassValue } from "clsx"
 import { useCallback, useRef } from "react"
+import { twMerge } from "tailwind-merge"
+
+const cn = (...classes: ClassValue[]) => twMerge(clsx(...classes))
 
 type CardProps = {
   children: React.ReactNode
@@ -27,7 +30,7 @@ export function Card({ children, className }: CardProps) {
 
   return (
     <article
-      className="border border-slate-50/20 rounded-3xl p-[1px] overflow-hidden relative z-10 group max-w-fit bg-slate-950"
+      className="border border-slate-50/20 rounded-3xl p-[1px] overflow-hidden relative z-10 group bg-slate-950"
       onMouseMove={handleMouseMove}
     >
       {/* Mouse followers */}
@@ -42,7 +45,7 @@ export function Card({ children, className }: CardProps) {
 
       {/* Card content */}
       <div
-        className={clsx(
+        className={cn(
           "h-full w-full bg-slate-900 p-4 rounded-3xl z-20",
           className
         )}
