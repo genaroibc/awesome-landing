@@ -1,0 +1,82 @@
+---
+import type { HTMLAttributes } from "astro/types"
+interface Props extends HTMLAttributes<"div"> {
+  text: string
+  delay?: number
+  animationDelay?: number
+}
+
+const {
+  text,
+  class: className = "",
+  delay = 0,
+  animationDelay = 100
+} = Astro.props
+---
+
+<div class="font-bold text-2xl">
+  <span class:list={["characters-container block my-4", className]}>
+    {
+      text.split("").map((char, index) => (
+        <span
+          class="character inline-block whitespace-pre-wrap"
+          style={{ animationDelay: `${index * animationDelay}ms` }}
+        >
+          {char}
+        </span>
+      ))
+    }
+  </span>
+</div>
+
+<script
+  define:vars={{
+    delay
+  }}
+>
+const charactersContainers = document.querySelectorAll(
+  ".characters-container"
+)
+
+if (charactersContainers) {
+  const observer = new IntersectionObserver(entries =>
+  {
+    entries.forEach(entry =>
+    {
+      if (entry.isIntersecting) {
+        setTimeout(() =>
+        {
+
+        entry.target.classList.add("is-in-view")
+        }, delay)
+      }
+    })
+  })
+
+  charactersContainers.forEach(charactersContainer =>
+  {
+    observer.observe(charactersContainer)
+  })
+}
+</script>
+
+<style>
+  .character {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  .characters-container.is-in-view .character {
+    animation-name: enter-in-view;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes enter-in-view {
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
