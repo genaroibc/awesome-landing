@@ -1,0 +1,30 @@
+---
+import AnimatedText from "@/components/AnimatedText.astro"
+---
+
+<section class="p-12 border border-slate-50/10 rounded-3xl">
+  <AnimatedText
+    text="Lorem ipsum dolor sit"
+    delay={0}
+    animationDelay={50}
+    class="text-3xl font-bold text-gray-200 md:text-4xl lg:text-5xl mt-4 mb-10"
+  />
+
+  <AnimatedText
+    text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    delay={1000}
+    animationDelay={30}
+    class="text-xl font-bold text-gray-400 md:text-2xl lg:text-3xl mt-4 mb-10"
+  />
+</section>
+
+<style>
+  section {
+    background: radial-gradient(
+      113.04% 100% at 50% 0%,
+      #111 0%,
+      #141414 0.01%,
+      rgba(7, 7, 7, 0.12) 100%
+    );
+  }
+</style>
