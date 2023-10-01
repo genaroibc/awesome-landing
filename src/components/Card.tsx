@@ -7,9 +7,16 @@ const cn = (...classes: ClassValue[]) => twMerge(clsx(...classes))
 type CardProps = {
   children: React.ReactNode
   className?: string
+  mouseFollowerClassName?: string
+  cardBorderClassName?: string
 }
 
-export function Card({ children, className }: CardProps) {
+export function Card({
+  children,
+  className,
+  mouseFollowerClassName,
+  cardBorderClassName
+}: CardProps) {
   const mouseFollowerRef = useRef<HTMLDivElement>(null)
   const cardBorderRef = useRef<HTMLDivElement>(null)
 
@@ -36,11 +43,17 @@ export function Card({ children, className }: CardProps) {
       {/* Mouse followers */}
       <div
         ref={mouseFollowerRef}
-        className="bg-indigo-500/5 rounded-full w-96 h-96 blur-[70px] absolute group-hover:opacity-100 opacity-0 transition-opacity duration-300 pointer-events-none z-10"
+        className={cn(
+          "bg-indigo-500/5 rounded-full w-96 h-96 blur-[70px] absolute group-hover:opacity-100 opacity-0 transition-opacity duration-300 pointer-events-none z-10",
+          mouseFollowerClassName
+        )}
       />
       <div
         ref={cardBorderRef}
-        className="bg-slate-50/40 rounded-full w-96 h-96 blur-[70px] absolute group-hover:opacity-100 opacity-0   transition-opacity duration-300 pointer-events-none -z-50"
+        className={cn(
+          "bg-slate-50/40 rounded-full w-96 h-96 blur-[70px] absolute group-hover:opacity-100 opacity-0   transition-opacity duration-300 pointer-events-none -z-50",
+          cardBorderClassName
+        )}
       ></div>
 
       {/* Card content */}
