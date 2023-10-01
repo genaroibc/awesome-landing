@@ -3,6 +3,8 @@ import "@/styles/globals.css"
 import { Home } from "@/components/Home.tsx"
 import CardsSection from "@/components/CardsSection.astro"
 import ContactForm from "@/components/ContactForm.astro"
+import Bento from "@/components/Bento.astro"
+import { Card } from "@/components/Card"
 ---
 
 <html lang="en">
@@ -18,7 +20,41 @@ import ContactForm from "@/components/ContactForm.astro"
 
     <CardsSection />
 
-    <ContactForm />
+    <Bento>
+      <ContactForm slot="box-1" />
+      <ContactForm slot="box-2" />
+      <Card
+        slot="box-3"
+        client:visible
+        className="p-4 md:p-8 bg-stone-950 w-full grid grid-cols-2 gap-2"
+        cardBorderClassName="bg-red-400"
+        mouseFollowerClassName="bg-red-500/5"
+      >
+        <div class="relative h-full">
+          <img
+            src="https://picsum.photos/200"
+            alt=""
+            class="h-full aspect-square rounded-3xl group-hover:rotate-6 -rotate-6 transition-all duration-300 absolute brightness-75"
+          />
+          <img
+            src="https://picsum.photos/190"
+            alt=""
+            class="h-full aspect-square rounded-3xl group-hover:-rotate-6 rotate-6 transition-all duration-300 absolute"
+          />
+        </div>
+
+        <div class="text-2xl">
+          <h6 class="font-bold mb-4">Lorem, ipsum.</h6>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
+            doloremque dolor fugit?
+          </p>
+        </div>
+      </Card>
+      <ContactForm slot="box-4" />
+      <ContactForm slot="box-5" />
+      <ContactForm slot="box-6" />
+    </Bento>
 
     <footer class="text-white text-center text-sm mt-8 py-12 px-4">
       <p>

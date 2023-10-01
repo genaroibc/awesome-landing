@@ -3,10 +3,12 @@ import AnimatedText from "@/components/AnimatedText.astro"
 import { Card } from "@/components/Card"
 ---
 
-<section class="mt-32">
+<section>
   <Card
     client:visible
     className="px-4 md:px-8 py-6 md:py-12 bg-stone-950 w-full"
+    cardBorderClassName="bg-red-400"
+    mouseFollowerClassName="bg-red-500/5"
   >
     <AnimatedText
       text="Lorem ipsum dolor sit"
